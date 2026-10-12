@@ -70,6 +70,7 @@ a {
     opacity: 0;
     transform: translateX(-50px) skewX(-5deg);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0) skewX(0);
@@ -81,6 +82,7 @@ a {
     opacity: 0;
     transform: translateY(20px);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0);
@@ -93,6 +95,7 @@ a {
     transform: translateX(40px);
     clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
@@ -111,10 +114,12 @@ a {
   align-items: center;
   margin-bottom: 50px;
 }
+
 .hero-texto {
   position: relative;
   z-index: 20;
 }
+
 .hero-texto h2 {
   font-size: 38px;
   color: #1a1a1a;
@@ -128,8 +133,7 @@ a {
   color: #666;
   margin-bottom: 30px;
   opacity: 0;
-  animation: entradaPersonaTexto 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s
-    forwards;
+  animation: entradaPersonaTexto 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
 }
 
 .contenedor-desplegable {
