@@ -1,9 +1,14 @@
+/* ==========================================================================
+   1. RESET Y CONFIGURACIÓN BASE
+   ========================================================================== */
+/* Box-sizing universal para facilitar el control de anchos y márgenes */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
+/* Fondo global con degradado oscuro sobre imagen estática fijada (parallax) */
 body {
   font-family: "Arial", sans-serif;
   color: #1a1a1a;
@@ -19,6 +24,9 @@ a {
   text-decoration: none;
 }
 
+/* ==========================================================================
+   2. CABECERA Y MENÚ DE NAVEGACIÓN
+   ========================================================================== */
 .cabecera {
   background-color: white;
   padding: 20px 8%;
@@ -34,6 +42,7 @@ a {
   color: #1a1a1a;
 }
 
+/* Color primario corporativo */
 .texto-azul {
   color: #0056b3;
 }
@@ -53,18 +62,23 @@ a {
   color: #0056b3;
 }
 
+/* Indicador visual para la página activa actual */
 .menu a.activo {
   color: #0056b3;
   border-bottom: 2px solid #0056b3;
   padding-bottom: 5px;
 }
 
+/* ==========================================================================
+   3. CONTENEDOR PRINCIPAL Y ANIMACIONES DE ENTRADA (KEYFRAMES)
+   ========================================================================== */
 .pagina-principal {
   width: 90%;
   max-width: 1200px;
   margin: 50px auto;
 }
 
+/* Animación de deslizamiento y aparición suave para títulos y textos */
 @keyframes entradaPersonaTexto {
   0% {
     opacity: 0;
@@ -77,6 +91,7 @@ a {
   }
 }
 
+/* Animación de elevación para botones */
 @keyframes entradaBoton {
   0% {
     opacity: 0;
@@ -89,6 +104,7 @@ a {
   }
 }
 
+/* Animación con corte diagonal (clip-path) para la imagen principal */
 @keyframes entradaImagen {
   0% {
     opacity: 0;
@@ -103,6 +119,9 @@ a {
   }
 }
 
+/* ==========================================================================
+   4. SECCIÓN HERO (TARJETA BLANCA PRINCIPAL)
+   ========================================================================== */
 .hero {
   background-color: white;
   border-radius: 16px;
@@ -143,6 +162,7 @@ a {
   animation: entradaBoton 0.6s ease-out 0.4s forwards;
 }
 
+/* Botón corporativo con corte poligonal en las esquinas */
 .boton-accion {
   display: inline-block;
   background-color: #0056b3;
@@ -151,9 +171,7 @@ a {
   font-weight: bold;
   font-size: 16px;
   clip-path: polygon(3% 0, 100% 0, 97% 100%, 0 100%);
-  transition:
-    background-color 0.3s,
-    transform 0.2s;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .boton-accion:hover {
@@ -161,6 +179,7 @@ a {
   transform: scale(1.05);
 }
 
+/* Menú desplegable opcional */
 .menu-desplegable {
   visibility: hidden;
   opacity: 0;
@@ -173,10 +192,7 @@ a {
   border-radius: 8px;
   z-index: 10;
   transform: translateY(-10px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease,
-    visibility 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
 }
 
 .menu-desplegable a {
@@ -199,6 +215,7 @@ a {
   transform: translateY(0);
 }
 
+/* Imagen de fondo de la sección Hero */
 .hero-img {
   background-image: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80");
   background-size: cover;
@@ -211,6 +228,9 @@ a {
   animation: entradaImagen 1s cubic-bezier(0.25, 1, 0.5, 1) 0.3s forwards;
 }
 
+/* ==========================================================================
+   5. PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
 .pie {
   background-color: #1a1a1a;
   color: white;
@@ -266,6 +286,10 @@ a {
   font-size: 14px;
 }
 
+/* ==========================================================================
+   6. DISEÑO ADAPTATIVO (MEDIA QUERIES - RESPONSIVE DESIGN)
+   ========================================================================== */
+/* Reorganiza la cabecera, cuadrículas y footer a 1 sola columna en pantallas móviles */
 @media (max-width: 768px) {
   .cabecera {
     flex-direction: column;
