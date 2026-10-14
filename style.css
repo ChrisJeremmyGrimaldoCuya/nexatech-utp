@@ -1,17 +1,16 @@
 /* ==========================================================================
    1. RESET Y CONFIGURACIÓN BASE
    ========================================================================== */
-/* Box-sizing universal para facilitar el control de anchos y márgenes */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* Fondo global con degradado oscuro sobre imagen estática fijada (parallax) */
 body {
   font-family: "Arial", sans-serif;
   color: #1a1a1a;
+  /* Fondo global con degradado oscuro sobre imagen fijada (efecto parallax) */
   background:
     linear-gradient(rgba(10, 20, 35, 0.8), rgba(10, 20, 35, 0.8)),
     url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80");
@@ -25,7 +24,25 @@ a {
 }
 
 /* ==========================================================================
-   2. CABECERA Y MENÚ DE NAVEGACIÓN
+   2. ANIMACIONES GLOBALES (KEYFRAMES)
+   ========================================================================== */
+@keyframes entradaPersonaTexto {
+  0% { opacity: 0; transform: translateX(-50px) skewX(-5deg); }
+  100% { opacity: 1; transform: translateX(0) skewX(0); }
+}
+
+@keyframes entradaBoton {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes entradaImagen {
+  0% { opacity: 0; transform: translateX(40px); clip-path: polygon(0 0, 0 0, 0 100%, 0 100%); }
+  100% { opacity: 1; transform: translateX(0); clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%); }
+}
+
+/* ==========================================================================
+   3. CABECERA Y MENÚ DE NAVEGACIÓN (HEADER)
    ========================================================================== */
 .cabecera {
   background-color: white;
@@ -42,7 +59,6 @@ a {
   color: #1a1a1a;
 }
 
-/* Color primario corporativo */
 .texto-azul {
   color: #0056b3;
 }
@@ -62,7 +78,6 @@ a {
   color: #0056b3;
 }
 
-/* Indicador visual para la página activa actual */
 .menu a.activo {
   color: #0056b3;
   border-bottom: 2px solid #0056b3;
@@ -70,7 +85,7 @@ a {
 }
 
 /* ==========================================================================
-   3. CONTENEDOR PRINCIPAL Y ANIMACIONES DE ENTRADA (KEYFRAMES)
+   4. ESTRUCTURAS COMUNES Y BOTONES
    ========================================================================== */
 .pagina-principal {
   width: 90%;
@@ -78,91 +93,6 @@ a {
   margin: 50px auto;
 }
 
-/* Animación de deslizamiento y aparición suave para títulos y textos */
-@keyframes entradaPersonaTexto {
-  0% {
-    opacity: 0;
-    transform: translateX(-50px) skewX(-5deg);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0) skewX(0);
-  }
-}
-
-/* Animación de elevación para botones */
-@keyframes entradaBoton {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Animación con corte diagonal (clip-path) para la imagen principal */
-@keyframes entradaImagen {
-  0% {
-    opacity: 0;
-    transform: translateX(40px);
-    clip-path: polygon(0 0, 0 0, 0 100%, 0 100%);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-  }
-}
-
-/* ==========================================================================
-   4. SECCIÓN HERO (TARJETA BLANCA PRINCIPAL)
-   ========================================================================== */
-.hero {
-  background-color: white;
-  border-radius: 16px;
-  padding: 50px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 40px;
-  align-items: center;
-  margin-bottom: 50px;
-}
-
-.hero-texto {
-  position: relative;
-  z-index: 20;
-}
-
-.hero-texto h2 {
-  font-size: 38px;
-  color: #1a1a1a;
-  margin-bottom: 20px;
-  line-height: 1.2;
-  animation: entradaPersonaTexto 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
-}
-
-.hero-texto p {
-  font-size: 18px;
-  color: #666;
-  margin-bottom: 30px;
-  opacity: 0;
-  animation: entradaPersonaTexto 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
-}
-
-.contenedor-desplegable {
-  position: relative;
-  display: inline-block;
-  opacity: 0;
-  animation: entradaBoton 0.6s ease-out 0.4s forwards;
-}
-
-/* Botón corporativo con corte poligonal en las esquinas */
 .boton-accion {
   display: inline-block;
   background-color: #0056b3;
@@ -179,7 +109,13 @@ a {
   transform: scale(1.05);
 }
 
-/* Menú desplegable opcional */
+.contenedor-desplegable {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+  animation: entradaBoton 0.6s ease-out 0.4s forwards;
+}
+
 .menu-desplegable {
   visibility: hidden;
   opacity: 0;
@@ -215,7 +151,42 @@ a {
   transform: translateY(0);
 }
 
-/* Imagen de fondo de la sección Hero */
+/* ==========================================================================
+   5. PÁGINAS: INICIO Y CONTACTOS (SECCIÓN HERO)
+   ========================================================================== */
+.hero {
+  background-color: white;
+  border-radius: 16px;
+  padding: 50px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.hero-texto {
+  position: relative;
+  z-index: 20;
+}
+
+.hero-texto h2 {
+  font-size: 38px;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  line-height: 1.2;
+  animation: entradaPersonaTexto 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.hero-texto p {
+  font-size: 18px;
+  color: #666;
+  margin-bottom: 30px;
+  opacity: 0;
+  animation: entradaPersonaTexto 0.8s cubic-bezier(0.25, 1, 0.5, 1) 0.2s forwards;
+}
+
 .hero-img {
   background-image: url("https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80");
   background-size: cover;
@@ -229,7 +200,172 @@ a {
 }
 
 /* ==========================================================================
-   5. PIE DE PÁGINA (FOOTER)
+   6. PÁGINA: SERVICIOS
+   ========================================================================== */
+.titulo-servicios {
+  text-align: left;
+  font-size: 36px;
+  color: white;
+  margin-bottom: 30px;
+  animation: entradaPersonaTexto 0.8s ease forwards;
+}
+
+.contenedor-servicios-separados {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; 
+  max-width: 800px; 
+}
+
+.tarjeta-servicio {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px 40px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-left 0.3s ease;
+  border-left: 5px solid transparent; 
+  opacity: 0;
+  animation: entradaBoton 0.6s ease-out forwards;
+}
+
+.tarjeta-servicio:hover {
+  transform: translateX(10px); 
+  box-shadow: -5px 10px 20px rgba(0, 0, 0, 0.15);
+  border-left: 5px solid #0056b3; 
+}
+
+/* Efecto Cascada en Servicios */
+.tarjeta-servicio:nth-child(1) { animation-delay: 0.1s; }
+.tarjeta-servicio:nth-child(2) { animation-delay: 0.3s; }
+.tarjeta-servicio:nth-child(3) { animation-delay: 0.5s; }
+.tarjeta-servicio:nth-child(4) { animation-delay: 0.7s; }
+.tarjeta-servicio:nth-child(5) { animation-delay: 0.9s; }
+
+.info-servicio {
+  text-align: left;
+  max-width: 75%;
+}
+
+.info-servicio h3 {
+  font-size: 22px;
+  color: #1a1a1a;
+  margin-bottom: 10px;
+  transition: color 0.3s;
+}
+
+.info-servicio p {
+  color: #555555;
+  line-height: 1.6;
+}
+
+.icono-servicio {
+  font-size: 55px !important; 
+  color: #0056b3 !important; 
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px; 
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.tarjeta-servicio:hover .icono-servicio {
+  transform: scale(1.15);
+  color: #1a1a1a !important;
+}
+
+/* Botón de "Solicitar servicio" */
+.btn-servicio {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 20px;
+  background-color: transparent;
+  color: #0056b3;
+  border: 2px solid #0056b3;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s, transform 0.2s;
+}
+
+.btn-servicio:hover {
+  background-color: #0056b3;
+  color: white;
+  transform: translateY(-2px); 
+}
+
+.tarjeta-servicio:hover .info-servicio h3 {
+  color: #1a1a1a; 
+}
+
+/* ==========================================================================
+   7. PÁGINA: NOSOTROS
+   ========================================================================== */
+.tarjeta-nosotros {
+  background-color: white;
+  border-radius: 12px;
+  padding: 40px 50px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  margin-bottom: 40px; 
+  animation: entradaPersonaTexto 0.8s ease forwards;
+}
+
+.titulo-nosotros {
+  font-size: 36px;
+  color: #1a1a1a;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.texto-nosotros {
+  color: #555555;
+  line-height: 1.8;
+  font-size: 16px;
+  text-align: justify;
+}
+
+.contenedor-mision-vision {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px; 
+  opacity: 0;
+  animation: entradaBoton 0.8s ease-out 0.3s forwards; 
+}
+
+.caja-mv {
+  background-color: white;
+  border-radius: 12px;
+  padding: 40px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+  border-top: 5px solid #0056b3; 
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.caja-mv:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,86,179,0.15);
+}
+
+.titulo-mv {
+  font-size: 24px;
+  color: #0056b3;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 12px; 
+}
+
+.caja-mv p {
+  color: #555555;
+  line-height: 1.7;
+  text-align: justify;
+}
+
+/* ==========================================================================
+   8. PIE DE PÁGINA (FOOTER)
    ========================================================================== */
 .pie {
   background-color: #1a1a1a;
@@ -287,22 +423,16 @@ a {
 }
 
 /* ==========================================================================
-   6. DISEÑO ADAPTATIVO (MEDIA QUERIES - RESPONSIVE DESIGN)
+   9. DISEÑO ADAPTATIVO (MEDIA QUERIES - CELULARES)
    ========================================================================== */
-/* Reorganiza la cabecera, cuadrículas y footer a 1 sola columna en pantallas móviles */
 @media (max-width: 768px) {
+  /* Cabecera */
   .cabecera {
     flex-direction: column;
     gap: 15px;
     text-align: center;
   }
-
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-    padding: 30px 20px;
-  }
-
+  
   .menu-desplegable {
     left: 50%;
     transform: translate(-50%, -10px) !important;
@@ -313,6 +443,35 @@ a {
     transform: translate(-50%, 0) !important;
   }
 
+  /* Inicio y Contactos */
+  .hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+    padding: 30px 20px;
+  }
+  
+  /* Servicios */
+  .tarjeta-servicio {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .info-servicio {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  /* Nosotros */
+  .contenedor-mision-vision {
+    grid-template-columns: 1fr;
+  }
+  
+  .tarjeta-nosotros {
+    padding: 30px 20px;
+  }
+
+  /* Pie de Página */
   .pie {
     grid-template-columns: 1fr;
     text-align: center;

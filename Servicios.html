@@ -5,38 +5,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexaTech Solutions | Servicios</title>
-    <!-- Vinculación con la hoja de estilos global -->
+    <!-- Vinculación con estilos y librería Font Awesome -->
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- CABECERA: Menú con estado activo en la vista 'Servicios' -->
+    <!-- CABECERA: Navegación principal -->
     <header class="cabecera">
         <h1 class="logo"><span class="texto-azul">NexaTech</span> Solutions</h1>
-        <nav class="menu">
+        <nav class="menu" aria-label="Navegación principal">
             <a href="Inicio.html">Inicio</a>
             <a href="Nosotros.html">Nosotros</a>
-            <a href="Servicios.html" class="activo">Servicios</a>
+            <a href="Servicios.html" class="activo" aria-current="page">Servicios</a>
             <a href="Contactos.html">Contactos</a>
         </nav>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL: Catálogo o descripción de los servicios ofrecidos -->
+    <!-- CONTENIDO PRINCIPAL: Catálogo de Servicios optimizado para conversión -->
     <main class="pagina-principal">
-        <section class="hero" style="grid-template-columns: 1fr;">
-            <div class="hero-texto" style="text-align: center;">
-                <h2>Nuestros Servicios Digitales</h2>
-                <p style="margin-bottom: 40px;">Ofrecemos soluciones adaptadas a las necesidades tecnológicas de tu
-                    negocio.</p>
-            </div>
+        
+        <h2 class="titulo-servicios">Nuestros productos y servicios</h2>
+
+        <section class="contenedor-servicios-separados" aria-label="Lista de servicios ofrecidos">
+
+            <!-- SERVICIO 1: Desarrollo Web -->
+            <article class="tarjeta-servicio">
+                <div class="info-servicio">
+                    <h3>1. Desarrollo de páginas web</h3>
+                    <p>Diseño y desarrollo de páginas web modernas y adaptadas a las necesidades de cada empresa. Permite a los clientes tener una presencia profesional en Internet.</p>
+                    <!-- Mejora: Botón directo hacia el formulario de contacto -->
+                    <a href="Contactos.html" class="btn-servicio">Solicitar servicio</a>
+                </div>
+                <!-- Mejora: aria-hidden para que los lectores de pantalla ignoren el ícono visual -->
+                <i class="fa-solid fa-laptop-code icono-servicio" aria-hidden="true"></i>
+            </article>
+
+            <!-- SERVICIO 2: Tiendas Virtuales -->
+            <article class="tarjeta-servicio">
+                <div class="info-servicio">
+                    <h3>2. Tiendas virtuales</h3>
+                    <p>Creación de plataformas para que los negocios puedan mostrar y vender sus productos por Internet, facilitando las compras de sus clientes.</p>
+                    <a href="Contactos.html" class="btn-servicio">Solicitar servicio</a>
+                </div>
+                <i class="fa-solid fa-cart-shopping icono-servicio" aria-hidden="true"></i>
+            </article>
+
+            <!-- SERVICIO 3: Sistemas Web -->
+            <article class="tarjeta-servicio">
+                <div class="info-servicio">
+                    <h3>3. Sistemas web</h3>
+                    <p>Desarrollo de sistemas personalizados para facilitar procesos como registros, administración de información y gestión de clientes.</p>
+                    <a href="Contactos.html" class="btn-servicio">Solicitar servicio</a>
+                </div>
+                <i class="fa-solid fa-network-wired icono-servicio" aria-hidden="true"></i>
+            </article>
+
+            <!-- SERVICIO 4: Diseño Web -->
+            <article class="tarjeta-servicio">
+                <div class="info-servicio">
+                    <h3>4. Diseño web</h3>
+                    <p>Creación de diseños atractivos, ordenados y fáciles de utilizar, buscando que los usuarios puedan navegar por las páginas de manera sencilla.</p>
+                    <a href="Contactos.html" class="btn-servicio">Solicitar servicio</a>
+                </div>
+                <i class="fa-solid fa-palette icono-servicio" aria-hidden="true"></i>
+            </article>
+
+            <!-- SERVICIO 5: Mantenimiento -->
+            <article class="tarjeta-servicio">
+                <div class="info-servicio">
+                    <h3>5. Mantenimiento</h3>
+                    <p>Servicio de mantenimiento para corregir errores, actualizar información y mantener las páginas web funcionando correctamente.</p>
+                    <a href="Contactos.html" class="btn-servicio">Solicitar servicio</a>
+                </div>
+                <i class="fa-solid fa-screwdriver-wrench icono-servicio" aria-hidden="true"></i>
+            </article>
+
         </section>
     </main>
 
-    <!-- PIE DE PÁGINA: Footer estandarizado -->
+    <!-- PIE DE PÁGINA -->
     <footer class="pie">
         <div class="footer-columna">
-            <h4 class="logo-footer"><span class="texto-azul">NexaTech</span> Solutions</h4>
+            <h4 class="logo-footer">
+                <span class="texto-azul">NexaTech</span> Solutions
+            </h4>
             <p>Soluciones Web para pequeñas y medianas empresas. Impulsando el crecimiento de tu negocio.</p>
         </div>
         <div class="footer-columna">

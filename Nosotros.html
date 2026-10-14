@@ -5,42 +5,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NexaTech Solutions | Nosotros</title>
-    <!-- Vinculación con la hoja de estilos global -->
+    <!-- Vinculación de estilos, icono de pestaña y librería Font Awesome -->
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
 <body>
-    <!-- CABECERA: Menú estandarizado con la pestaña 'Nosotros' marcada como activa -->
+    <!-- CABECERA: Navegación con la clase 'activo' en la página Nosotros -->
     <header class="cabecera">
         <h1 class="logo"><span class="texto-azul">NexaTech</span> Solutions</h1>
-        <nav class="menu">
+        <nav class="menu" aria-label="Navegación principal">
             <a href="Inicio.html">Inicio</a>
-            <a href="Nosotros.html" class="activo">Nosotros</a>
+            <a href="Nosotros.html" class="activo" aria-current="page">Nosotros</a>
             <a href="Servicios.html">Servicios</a>
             <a href="Contactos.html">Contactos</a>
         </nav>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL: Presentación institucional en formato de tarjeta central -->
+    <!-- CONTENIDO PRINCIPAL: Historia, Misión y Visión de la empresa -->
     <main class="pagina-principal">
-        <!-- Reutilizamos la clase .hero adaptada a 1 sola columna mediante estilo en línea -->
-        <section class="hero" style="grid-template-columns: 1fr;">
-            <div class="hero-texto" style="text-align: center;">
-                <h2>Sobre Nosotros</h2>
-                <p style="max-width: 800px; margin: 0 auto 30px auto;">
-                    En <strong>NexaTech Solutions</strong> somos un equipo apasionado por la tecnología, dedicado a
-                    potenciar el crecimiento digital de las pequeñas y medianas empresas mediante el desarrollo de
-                    soluciones web modernas, eficientes y accesibles.
-                </p>
-            </div>
+        
+        <!-- SECCIÓN 1: Presentación de la Empresa (Basado en el texto del Balsamiq) -->
+        <section class="tarjeta-nosotros">
+            <h2 class="titulo-nosotros">Nosotros</h2>
+            <p class="texto-nosotros">
+                NexaTech Solutions es una empresa dedicada al desarrollo de páginas web y soluciones digitales para pequeñas y medianas empresas. Fue creada con el propósito de ayudar a los negocios a mejorar su presencia en Internet y aprovechar las herramientas tecnológicas para crecer. La empresa pertenece al sector tecnológico y se caracteriza por ofrecer soluciones adaptadas a las necesidades de cada cliente. Entre sus principales servicios se encuentran el diseño y desarrollo de páginas web, tiendas virtuales y sistemas web. NexaTech Solutions busca diferenciarse mediante diseños modernos, facilidad de uso y soluciones accesibles para los negocios que desean ingresar o mejorar su presencia en el mundo digital.
+            </p>
         </section>
+
+        <!-- SECCIÓN 2: Contenedor Grid para Misión y Visión (2 columnas) -->
+        <section class="contenedor-mision-vision">
+            
+            <!-- CAJA IZQUIERDA: Misión -->
+            <article class="caja-mv">
+                <!-- Ícono de objetivo/diana para representar la Misión -->
+                <h3 class="titulo-mv"><i class="fa-solid fa-bullseye" aria-hidden="true"></i> Misión</h3>
+                <p>
+                    La misión de NexaTech Solutions es desarrollar soluciones web modernas, funcionales y accesibles para pequeñas y medianas empresas, ayudándolas a mejorar su presencia digital, llegar a más clientes y fortalecer el crecimiento de sus negocios mediante la tecnología.
+                </p>
+            </article>
+
+            <!-- CAJA DERECHA: Visión -->
+            <article class="caja-mv">
+                <!-- Ícono de ojo para representar la Visión (hacia el futuro) -->
+                <h3 class="titulo-mv"><i class="fa-solid fa-eye" aria-hidden="true"></i> Visión</h3>
+                <p>
+                    La visión de NexaTech Solutions es convertirse en una empresa reconocida en el desarrollo de soluciones web en el Perú, destacándose por la innovación, la calidad de sus proyectos y la satisfacción de sus clientes.
+                </p>
+            </article>
+
+        </section>
+
     </main>
 
-    <!-- PIE DE PÁGINA: Mantiene la misma estructura del footer institucional -->
+    <!-- PIE DE PÁGINA: Estandarizado -->
     <footer class="pie">
         <div class="footer-columna">
-            <h4 class="logo-footer"><span class="texto-azul">NexaTech</span> Solutions</h4>
+            <h4 class="logo-footer">
+                <span class="texto-azul">NexaTech</span> Solutions
+            </h4>
             <p>Soluciones Web para pequeñas y medianas empresas. Impulsando el crecimiento de tu negocio.</p>
         </div>
         <div class="footer-columna">
