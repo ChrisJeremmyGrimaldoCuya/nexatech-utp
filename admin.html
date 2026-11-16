@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NexaTech Solutions | Panel Administrativo</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="app.js" defer></script>
+</head>
+
+<body>
+    <!-- CABECERA ADMINISTRATIVA -->
+    <header class="cabecera">
+        <h1 class="logo"><span class="texto-azul">NexaTech</span> Admin</h1>
+
+        <button class="btn-hamburguesa" id="btn-menu" aria-label="Abrir menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="menu" id="menu-principal" aria-label="Navegación administrativa">
+            <a href="admin.html" class="activo">Servicios</a>
+            <a href="#">Solicitudes</a>
+            <a href="#">Clientes</a>
+            <a href="Inicio.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Web Pública</a>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL DEL PANEL (SOLO MAQUETACIÓN VISUAL) -->
+    <main class="pagina-principal">
+
+        <!-- Encabezado y botón visual de nuevo registro -->
+        <div class="admin-encabezado">
+            <div>
+                <h2 class="titulo-servicios" style="margin-bottom: 5px;">Gestión de Productos y Servicios</h2>
+                <p style="color: #cccccc;">Panel de administración del catálogo corporativo (Vista de maquetación)</p>
+            </div>
+            <button type="button" class="boton-accion" style="border: none; cursor: pointer;">
+                <i class="fa-solid fa-plus"></i> Nuevo Servicio
+            </button>
+        </div>
+
+        <!-- Tarjetas de resumen (KPIs) -->
+        <section class="admin-metricas">
+            <article class="tarjeta-metrica">
+                <div>
+                    <span>Total Servicios</span>
+                    <h3>5</h3>
+                </div>
+                <i class="fa-solid fa-layer-group"></i>
+            </article>
+
+            <article class="tarjeta-metrica">
+                <div>
+                    <span>Servicios Activos</span>
+                    <h3>5</h3>
+                </div>
+                <i class="fa-solid fa-circle-check"></i>
+            </article>
+
+            <article class="tarjeta-metrica">
+                <div>
+                    <span>Cotizaciones del Mes</span>
+                    <h3>14</h3>
+                </div>
+                <i class="fa-solid fa-envelope-open-text"></i>
+            </article>
+        </section>
+
+        <!-- Contenedor blanco de tabla administrativa -->
+        <section class="admin-panel-tabla">
+            <!-- Barra de filtros visuales -->
+            <div class="admin-filtros">
+                <input type="text" placeholder="Buscar servicio por nombre..." aria-label="Buscar servicio" />
+                <select aria-label="Filtrar por categoría">
+                    <option value="">Todas las categorías</option>
+                    <option value="web">Desarrollo Web</option>
+                    <option value="ecommerce">E-Commerce</option>
+                    <option value="sistemas">Software a Medida</option>
+                    <option value="diseno">UI / UX</option>
+                    <option value="soporte">Soporte Técnico</option>
+                </select>
+            </div>
+
+            <!-- Tabla de registros -->
+            <div class="tabla-responsiva">
+                <table class="tabla-admin">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ícono</th>
+                            <th>Servicio</th>
+                            <th>Categoría</th>
+                            <th>Precio Ref.</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#01</td>
+                            <td><i class="fa-solid fa-laptop-code icono-tabla"></i></td>
+                            <td><strong>Desarrollo de páginas web</strong></td>
+                            <td>Desarrollo Web</td>
+                            <td>Desde S/ 850</td>
+                            <td><span class="badge-activo">Activo</span></td>
+                            <td class="acciones-tabla">
+                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
+                                    Editar</button>
+                                <button type="button" class="btn-eliminar" title="Eliminar"><i
+                                        class="fa-solid fa-trash"></i> Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#02</td>
+                            <td><i class="fa-solid fa-cart-shopping icono-tabla"></i></td>
+                            <td><strong>Tiendas virtuales</strong></td>
+                            <td>E-Commerce</td>
+                            <td>Desde S/ 1,600</td>
+                            <td><span class="badge-activo">Activo</span></td>
+                            <td class="acciones-tabla">
+                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
+                                    Editar</button>
+                                <button type="button" class="btn-eliminar" title="Eliminar"><i
+                                        class="fa-solid fa-trash"></i> Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#03</td>
+                            <td><i class="fa-solid fa-network-wired icono-tabla"></i></td>
+                            <td><strong>Sistemas web</strong></td>
+                            <td>Software a Medida</td>
+                            <td>Desde S/ 2,400</td>
+                            <td><span class="badge-activo">Activo</span></td>
+                            <td class="acciones-tabla">
+                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
+                                    Editar</button>
+                                <button type="button" class="btn-eliminar" title="Eliminar"><i
+                                        class="fa-solid fa-trash"></i> Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#04</td>
+                            <td><i class="fa-solid fa-palette icono-tabla"></i></td>
+                            <td><strong>Diseño web</strong></td>
+                            <td>UI / UX</td>
+                            <td>Desde S/ 550</td>
+                            <td><span class="badge-activo">Activo</span></td>
+                            <td class="acciones-tabla">
+                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
+                                    Editar</button>
+                                <button type="button" class="btn-eliminar" title="Eliminar"><i
+                                        class="fa-solid fa-trash"></i> Eliminar</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>#05</td>
+                            <td><i class="fa-solid fa-screwdriver-wrench icono-tabla"></i></td>
+                            <td><strong>Mantenimiento</strong></td>
+                            <td>Soporte Técnico</td>
+                            <td>Desde S/ 200 / mes</td>
+                            <td><span class="badge-activo">Activo</span></td>
+                            <td class="acciones-tabla">
+                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
+                                    Editar</button>
+                                <button type="button" class="btn-eliminar" title="Eliminar"><i
+                                        class="fa-solid fa-trash"></i> Eliminar</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer class="pie">
+        <div class="footer-columna">
+            <h4 class="logo-footer"><span class="texto-azul">NexaTech</span> Solutions</h4>
+            <p>Soluciones Web para pequeñas y medianas empresas. Impulsando el crecimiento de tu negocio.</p>
+        </div>
+        <div class="footer-columna">
+            <h4>Enlaces Rápidos</h4>
+            <a href="Inicio.html">Inicio</a>
+            <a href="Nosotros.html">Sobre Nosotros</a>
+            <a href="Servicios.html">Servicios</a>
+            <a href="Contactos.html">Contactos</a>
+            <a href="admin.html">Panel Admin</a>
+        </div>
+        <div class="footer-columna">
+            <h4>Contáctanos</h4>
+            <p>📍 Lima, Perú</p>
+            <p>✉️ nexasolutions956@gmail.com</p>
+            <p>📞 +51 989 449 366</p>
+        </div>
+        <div class="copyright">
+            &copy; 2026 NexaTech Solutions. Todos los derechos reservados.
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -2,19 +2,24 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NexaTech Solutions | Contactos</title>
-    <!-- Vinculación con la hoja de estilos CSS compartida -->
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" type="image/png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <script src="app.js" defer></script>
 </head>
 
 <body>
-    <!-- CABECERA: Navegación fija con la pestaña 'Contactos' activa -->
     <header class="cabecera">
         <h1 class="logo"><span class="texto-azul">NexaTech</span> Solutions</h1>
-        <nav class="menu">
+
+        <button class="btn-hamburguesa" id="btn-menu" aria-label="Abrir menú">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <nav class="menu" id="menu-principal">
             <a href="Inicio.html">Inicio</a>
             <a href="Nosotros.html">Nosotros</a>
             <a href="Servicios.html">Servicios</a>
@@ -22,38 +27,37 @@
         </nav>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL: Tarjeta de formulario centrada con Flexbox -->
     <main class="pagina-principal" style="display: flex; justify-content: center;">
         <section class="hero" style="width: 100%; max-width: 600px; grid-template-columns: 1fr;">
             <div class="hero-texto">
                 <h2 style="text-align: center;">Contactos</h2>
                 <p style="text-align: center;">¿Tienes alguna duda o proyecto en mente? Escríbenos.</p>
 
-                <!-- FORMULARIO DE CONTACTO: Captura de datos de los clientes mediante inputs y textarea -->
-                <form style="display: flex; flex-direction: column; gap: 15px;">
+                <form id="form-contacto" style="display: flex; flex-direction: column; gap: 15px;">
                     <label for="nombre" style="font-weight: bold;">Nombre</label>
                     <input id="nombre" type="text" placeholder="Tu nombre"
-                        style="width: 100%; padding: 12px; border: 1px solid #cccccc; border-radius: 6px;" required>
+                        style="width: 100%; padding: 12px; border: 1px solid #cccccc; border-radius: 6px;" required />
 
                     <label for="correo" style="font-weight: bold;">Correo</label>
                     <input id="correo" type="email" placeholder="tu@correo.com"
-                        style="width: 100%; padding: 12px; border: 1px solid #cccccc; border-radius: 6px;" required>
+                        style="width: 100%; padding: 12px; border: 1px solid #cccccc; border-radius: 6px;" required />
 
                     <label for="mensaje" style="font-weight: bold;">Mensaje</label>
                     <textarea id="mensaje" rows="4" placeholder="¿Cómo podemos ayudarte?"
                         style="width: 100%; padding: 12px; border: 1px solid #cccccc; border-radius: 6px;"
                         required></textarea>
 
-                    <!-- Botón para procesar el envío del formulario -->
                     <button type="submit" class="boton-accion"
-                        style="border: none; cursor: pointer; text-align: center; width: 100%; margin-top: 10px;">Enviar
-                        Mensaje</button>
+                        style="border: none; cursor: pointer; text-align: center; width: 100%; margin-top: 10px;">
+                        Enviar Mensaje
+                    </button>
+
+                    <p id="mensaje-confirmacion" class="alerta-exito" style="display: none;"></p>
                 </form>
             </div>
         </section>
     </main>
 
-    <!-- PIE DE PÁGINA: Mantiene la consistencia del sitio -->
     <footer class="pie">
         <div class="footer-columna">
             <h4 class="logo-footer"><span class="texto-azul">NexaTech</span> Solutions</h4>
@@ -65,6 +69,7 @@
             <a href="Nosotros.html">Sobre Nosotros</a>
             <a href="Servicios.html">Servicios</a>
             <a href="Contactos.html">Contactos</a>
+            <a href="admin.html">Panel Admin</a>
         </div>
         <div class="footer-columna">
             <h4>Contáctanos</h4>

@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "titulo": "1. Desarrollo de páginas web",
+    "categoria": "Desarrollo Web",
+    "descripcion": "Diseño y desarrollo de páginas web modernas y adaptadas a las necesidades de cada empresa. Permite a los clientes tener una presencia profesional en Internet.",
+    "icono": "fa-solid fa-laptop-code",
+    "precioReferencial": "Desde S/ 850",
+    "tiempoEntrega": "1 a 2 semanas",
+    "incluye": "Diseño responsivo (PC y móvil), formulario de contacto, optimización SEO básica y certificado SSL."
+  },
+  {
+    "id": 2,
+    "titulo": "2. Tiendas virtuales",
+    "categoria": "E-Commerce",
+    "descripcion": "Creación de plataformas para que los negocios puedan mostrar y vender sus productos por Internet, facilitando las compras de sus clientes.",
+    "icono": "fa-solid fa-cart-shopping",
+    "precioReferencial": "Desde S/ 1,600",
+    "tiempoEntrega": "2 a 4 semanas",
+    "incluye": "Catálogo autoadministrable, carrito de compras, integración con pasarelas de pago y panel de pedidos."
+  },
+  {
+    "id": 3,
+    "titulo": "3. Sistemas web",
+    "categoria": "Software a Medida",
+    "descripcion": "Desarrollo de sistemas personalizados para facilitar procesos como registros, administración de información y gestión de clientes.",
+    "icono": "fa-solid fa-network-wired",
+    "precioReferencial": "Desde S/ 2,400",
+    "tiempoEntrega": "4 a 6 semanas",
+    "incluye": "Control de usuarios y roles, base de datos relacional, reportes exportables y respaldo automático."
+  },
+  {
+    "id": 4,
+    "titulo": "4. Diseño web",
+    "categoria": "UI / UX",
+    "descripcion": "Creación de diseños atractivos, ordenados y fáciles de utilizar, buscando que los usuarios puedan navegar por las páginas de manera sencilla.",
+    "icono": "fa-solid fa-palette",
+    "precioReferencial": "Desde S/ 550",
+    "tiempoEntrega": "5 a 7 días",
+    "incluye": "Prototipo interactivo, paleta de colores corporativa, tipografía moderna y guía de estilo visual."
+  },
+  {
+    "id": 5,
+    "titulo": "5. Mantenimiento",
+    "categoria": "Soporte Técnico",
+    "descripcion": "Servicio de mantenimiento para corregir errores, actualizar información y mantener las páginas web funcionando correctamente.",
+    "icono": "fa-solid fa-screwdriver-wrench",
+    "precioReferencial": "Desde S/ 200 / mes",
+    "tiempoEntrega": "Atención en 24 h",
+    "incluye": "Copias de seguridad periódicas, actualización de contenido, monitoreo de velocidad y corrección de fallos."
+  }
+]

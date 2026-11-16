@@ -5,18 +5,21 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>NexaTech Solutions | Inicio</title>
-  <!-- Vinculación con la hoja de estilos global y el icono de la pestaña -->
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="https://www.google.com/search?sca_esv=590b7d7f3528a665&sxsrf=APpeQnuKhALPS-hG1n_ZGP_Vp2uPvBawBw:1791980600060&udm=2&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832VTJOOCxW_fyN-Q_ezyf8gKKYi6DYGSj2Ng7gxGZN3oaswZ5P68_zuaHD6-XlpIgy3PAzLPNqPV24izAaJKECFqr-zpGRZ-gkK38EZtBk9sR1ZB1HrGl43-BxUMk_NE3ZBaPy55XJRqMREZM3rZ1g-qaNn9jeCuMY0TnuQN4RHuAR8O1OQ&q=taller+de+programaci%C3%B3n+web&sa=X&ved=2ahUKEwj54fD4v7mXAxUMrpUCHeL0IbAQtKgLegQIGRAB&biw=1536&bih=702&dpr=1.25#sv=CAMSUxoyKhBlLTk4YkhkVnBUR1FCeTRNMg45OGJIZFZwVEdRQnk0TToOQ0lvYzRUSFp0TWFRZE0gBCoXCgFzEhBlLTk4YkhkVnBUR1FCeTRNGAEwAVACGAcgsPO1sQxKCBACGAEgAigB" type="image/png" />
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" type="image/png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="app.js" defer></script>
 </head>
 
 <body>
-  <!-- CABECERA: Mantiene la identidad visual y el menú principal de navegación -->
   <header class="cabecera">
     <h1 class="logo"><span class="texto-azul">NexaTech</span> Solutions</h1>
 
-    <!-- Menú principal con la clase 'activo' en la vista actual -->
-    <nav class="menu">
+    <button class="btn-hamburguesa" id="btn-menu" aria-label="Abrir menú">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <nav class="menu" id="menu-principal">
       <a href="Inicio.html" class="activo">Inicio</a>
       <a href="Nosotros.html">Nosotros</a>
       <a href="Servicios.html">Servicios</a>
@@ -24,45 +27,36 @@
     </nav>
   </header>
 
-  <!-- CONTENIDO PRINCIPAL: Sección Hero de presentación con propuesta de valor -->
   <main class="pagina-principal">
     <section class="hero">
-      <!-- Columna izquierda: Mensaje principal y botón de llamada a la acción (CTA) -->
       <div class="hero-texto">
         <h2>Soluciones Web para pequeñas y medianas empresas</h2>
         <p>
           Impulsamos el crecimiento de tu negocio con tecnología moderna y
           accesible.
         </p>
-
-        <!-- Redirección directa hacia la página de Contactos -->
         <a href="Contactos.html" class="boton-accion">Comenzar Ahora</a>
       </div>
-
-      <!-- Columna derecha: Imagen destacada configurada vía CSS -->
       <div class="hero-img"></div>
     </section>
   </main>
 
-  <!-- PIE DE PÁGINA: Información corporativa, navegación secundaria y datos de contacto -->
   <footer class="pie">
     <div class="footer-columna">
-      <h4 class="logo-footer">
-        <span class="texto-azul">NexaTech</span> Solutions
-      </h4>
+      <h4 class="logo-footer"><span class="texto-azul">NexaTech</span> Solutions</h4>
       <p>
         Soluciones Web para pequeñas y medianas empresas. Impulsando el
         crecimiento de tu negocio.
       </p>
     </div>
 
-    <!-- Enlaces de navegación rápida uniformes en todo el sitio -->
     <div class="footer-columna">
       <h4>Enlaces Rápidos</h4>
       <a href="Inicio.html">Inicio</a>
       <a href="Nosotros.html">Sobre Nosotros</a>
       <a href="Servicios.html">Servicios</a>
       <a href="Contactos.html">Contactos</a>
+      <a href="admin.html">Panel Admin</a>
     </div>
 
     <div class="footer-columna">
