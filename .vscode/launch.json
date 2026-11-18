@@ -2,12 +2,11 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "type": "chrome",
+      "type": "msedge",
       "request": "launch",
-      "name": "Depurar NexaTech en Brave",
+      "name": "Depurar NexaTech en Edge",
       "url": "http://127.0.0.1:5500/Servicios.html",
-      "webRoot": "${workspaceFolder}",
-      "runtimeExecutable": "C:\\Program Files\\BraveSoftware\\Brave-Browser\\Application\\brave.exe"
+      "webRoot": "${workspaceFolder}"
     }
   ]
 }

@@ -3,6 +3,7 @@
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
+  inicializarPanelAdmin();
   inicializarMenuMovil();
   cargarServiciosDesdeJSON();
   inicializarFormularioContacto();
@@ -134,5 +135,175 @@ function inicializarFormularioContacto() {
     }
     form.reset();
     console.log("Formulario validado correctamente");
+  });
+}
+
+/* =========================================================
+   MÓDULO ADMINISTRADOR (CRUD EN MEMORIA + FETCH JSON)
+   ========================================================= */
+async function inicializarPanelAdmin() {
+  const tbody = document.getElementById("tabla-admin-servicios");
+  if (!tbody) return;
+
+  let serviciosAdmin = [];
+  const buscador = document.getElementById("buscador-admin");
+  const filtroCategoria = document.getElementById("filtro-categoria-admin");
+  const modalAdmin = document.getElementById("modal-admin-servicio");
+  const formAdmin = document.getElementById("form-admin-servicio");
+  const tituloModal = document.getElementById("titulo-modal-admin");
+
+  try {
+    const respuesta = await fetch("servicios.json");
+    if (!respuesta.ok) throw new Error("No se pudo cargar servicios.json");
+    serviciosAdmin = await respuesta.json();
+    console.log("Panel Admin inicializado con servicios:", serviciosAdmin);
+    renderizarTablaAdmin(serviciosAdmin);
+  } catch (error) {
+    console.error("Error en Panel Admin:", error);
+  }
+
+  function actualizarKPIs(lista) {
+    const kpiTotal = document.getElementById("kpi-total-servicios");
+    const kpiCategorias = document.getElementById("kpi-total-categorias");
+    if (kpiTotal) kpiTotal.textContent = lista.length;
+    if (kpiCategorias) {
+      const unicas = new Set(lista.map((s) => s.categoria));
+      kpiCategorias.textContent = unicas.size;
+    }
+  }
+
+  function filtrarYRenderizar() {
+    const texto = buscador.value.toLowerCase().trim();
+    const cat = filtroCategoria.value;
+
+    const filtrados = serviciosAdmin.filter((s) => {
+      const coincideTexto =
+        s.titulo.toLowerCase().includes(texto) ||
+        s.descripcion.toLowerCase().includes(texto);
+      const coincideCategoria = cat === "todas" || s.categoria === cat;
+      return coincideTexto && coincideCategoria;
+    });
+
+    renderizarTablaAdmin(filtrados);
+  }
+
+  function renderizarTablaAdmin(lista) {
+    tbody.innerHTML = "";
+    actualizarKPIs(serviciosAdmin);
+
+    if (lista.length === 0) {
+      tbody.innerHTML = `<tr><td colspan="7" style="text-align:center;">No se encontraron servicios con ese filtro.</td></tr>`;
+      return;
+    }
+
+    lista.forEach((servicio) => {
+      const fila = document.createElement("tr");
+      fila.innerHTML = `
+        <td>#${servicio.id}</td>
+        <td><strong>${servicio.titulo}</strong></td>
+        <td>${servicio.categoria}</td>
+        <td>${servicio.precioReferencial}</td>
+        <td>${servicio.tiempoEntrega}</td>
+        <td><span class="badge-activo">Activo</span></td>
+        <td class="celda-acciones">
+          <button type="button" class="btn-editar" data-id="${servicio.id}" title="Editar">
+            <i class="fa-solid fa-pen-to-square"></i> Editar
+          </button>
+          <button type="button" class="btn-eliminar" data-id="${servicio.id}" title="Eliminar">
+            <i class="fa-solid fa-trash"></i> Eliminar
+          </button>
+        </td>
+      `;
+      tbody.appendChild(fila);
+    });
+
+    tbody.querySelectorAll(".btn-editar").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = Number(btn.dataset.id);
+        const item = serviciosAdmin.find((s) => s.id === id);
+        if (!item) return;
+
+        tituloModal.textContent = "Editar Servicio";
+        document.getElementById("admin-servicio-id").value = item.id;
+        document.getElementById("admin-titulo").value = item.titulo;
+        document.getElementById("admin-categoria").value = item.categoria;
+        document.getElementById("admin-precio").value = item.precioReferencial;
+        document.getElementById("admin-tiempo").value = item.tiempoEntrega;
+        document.getElementById("admin-incluye").value = item.incluye;
+        document.getElementById("admin-descripcion").value = item.descripcion;
+        modalAdmin.showModal();
+      });
+    });
+
+    tbody.querySelectorAll(".btn-eliminar").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const id = Number(btn.dataset.id);
+        if (
+          confirm("¿Deseas eliminar este servicio del catálogo administrativo?")
+        ) {
+          serviciosAdmin = serviciosAdmin.filter((s) => s.id !== id);
+          console.log(
+            `Servicio #${id} eliminado. Total actual:`,
+            serviciosAdmin.length,
+          );
+          filtrarYRenderizar();
+        }
+      });
+    });
+  }
+
+  buscador.addEventListener("input", filtrarYRenderizar);
+  filtroCategoria.addEventListener("change", filtrarYRenderizar);
+
+  document
+    .getElementById("btn-nuevo-servicio")
+    .addEventListener("click", () => {
+      formAdmin.reset();
+      document.getElementById("admin-servicio-id").value = "";
+      tituloModal.textContent = "Nuevo Servicio";
+      modalAdmin.showModal();
+    });
+
+  document
+    .getElementById("btn-cerrar-modal-admin")
+    .addEventListener("click", () => modalAdmin.close());
+  document
+    .getElementById("btn-cancelar-admin")
+    .addEventListener("click", () => modalAdmin.close());
+
+  formAdmin.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const idExistente = document.getElementById("admin-servicio-id").value;
+
+    const datosServicio = {
+      id: idExistente
+        ? Number(idExistente)
+        : Math.max(0, ...serviciosAdmin.map((s) => s.id)) + 1,
+      titulo: document.getElementById("admin-titulo").value.trim(),
+      categoria: document.getElementById("admin-categoria").value,
+      precioReferencial: document.getElementById("admin-precio").value.trim(),
+      tiempoEntrega: document.getElementById("admin-tiempo").value.trim(),
+      incluye: document.getElementById("admin-incluye").value.trim(),
+      descripcion: document.getElementById("admin-descripcion").value.trim(),
+      icono: "fa-solid fa-code",
+    };
+
+    if (idExistente) {
+      const indice = serviciosAdmin.findIndex(
+        (s) => s.id === Number(idExistente),
+      );
+      if (indice !== -1)
+        serviciosAdmin[indice] = {
+          ...serviciosAdmin[indice],
+          ...datosServicio,
+        };
+      console.log("Servicio actualizado:", datosServicio);
+    } else {
+      serviciosAdmin.push(datosServicio);
+      console.log("Nuevo servicio agregado:", datosServicio);
+    }
+
+    modalAdmin.close();
+    filtrarYRenderizar();
   });
 }

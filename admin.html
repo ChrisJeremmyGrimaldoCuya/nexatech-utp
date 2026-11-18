@@ -2,202 +2,159 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NexaTech Solutions | Panel Administrativo</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/1005/1005141.png" type="image/png" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NexaTech Solutions | Panel Administrador</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
     <script src="app.js" defer></script>
 </head>
 
 <body>
-    <!-- CABECERA ADMINISTRATIVA -->
-    <header class="cabecera">
-        <h1 class="logo"><span class="texto-azul">NexaTech</span> Admin</h1>
-
-        <button class="btn-hamburguesa" id="btn-menu" aria-label="Abrir menú">
-            <i class="fa-solid fa-bars"></i>
-        </button>
-
-        <nav class="menu" id="menu-principal" aria-label="Navegación administrativa">
-            <a href="admin.html" class="activo">Servicios</a>
-            <a href="#">Solicitudes</a>
-            <a href="#">Clientes</a>
-            <a href="Inicio.html"><i class="fa-solid fa-arrow-up-right-from-square"></i> Ver Web Pública</a>
-        </nav>
+    <header class="encabezado">
+        <div class="contenedor nav-contenedor">
+            <a href="Inicio.html" class="logo"><span>Nexa</span>Tech Admin</a>
+            <button id="btn-menu" class="btn-hamburguesa" aria-label="Abrir menú">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <nav id="menu-principal" class="navegacion">
+                <a href="admin.html" class="activo">Gestión de Servicios</a>
+                <a href="Servicios.html">Ver Catálogo Público</a>
+                <a href="Inicio.html">Volver al Sitio</a>
+            </nav>
+        </div>
     </header>
 
-    <!-- CONTENIDO PRINCIPAL DEL PANEL (SOLO MAQUETACIÓN VISUAL) -->
-    <main class="pagina-principal">
-
-        <!-- Encabezado y botón visual de nuevo registro -->
-        <div class="admin-encabezado">
+    <main class="contenedor admin-seccion">
+        <div class="admin-cabecera">
             <div>
-                <h2 class="titulo-servicios" style="margin-bottom: 5px;">Gestión de Productos y Servicios</h2>
-                <p style="color: #cccccc;">Panel de administración del catálogo corporativo (Vista de maquetación)</p>
+                <h1>Panel de Administración de Servicios</h1>
+                <p>Gestiona el catálogo de soluciones tecnológicas de NexaTech Solutions.</p>
             </div>
-            <button type="button" class="boton-accion" style="border: none; cursor: pointer;">
+            <button type="button" id="btn-nuevo-servicio" class="btn-primario">
                 <i class="fa-solid fa-plus"></i> Nuevo Servicio
             </button>
         </div>
 
         <!-- Tarjetas de resumen (KPIs) -->
-        <section class="admin-metricas">
-            <article class="tarjeta-metrica">
-                <div>
-                    <span>Total Servicios</span>
-                    <h3>5</h3>
-                </div>
+        <section class="kpi-grid">
+            <article class="kpi-card">
                 <i class="fa-solid fa-layer-group"></i>
-            </article>
-
-            <article class="tarjeta-metrica">
                 <div>
-                    <span>Servicios Activos</span>
-                    <h3>5</h3>
+                    <span class="kpi-label">Servicios Registrados</span>
+                    <strong id="kpi-total-servicios" class="kpi-valor">0</strong>
                 </div>
+            </article>
+            <article class="kpi-card">
+                <i class="fa-solid fa-tags"></i>
+                <div>
+                    <span class="kpi-label">Categorías Activas</span>
+                    <strong id="kpi-total-categorias" class="kpi-valor">0</strong>
+                </div>
+            </article>
+            <article class="kpi-card">
                 <i class="fa-solid fa-circle-check"></i>
-            </article>
-
-            <article class="tarjeta-metrica">
                 <div>
-                    <span>Cotizaciones del Mes</span>
-                    <h3>14</h3>
+                    <span class="kpi-label">Estado del Sistema</span>
+                    <strong class="kpi-valor">En línea</strong>
                 </div>
-                <i class="fa-solid fa-envelope-open-text"></i>
             </article>
         </section>
 
-        <!-- Contenedor blanco de tabla administrativa -->
-        <section class="admin-panel-tabla">
-            <!-- Barra de filtros visuales -->
-            <div class="admin-filtros">
-                <input type="text" placeholder="Buscar servicio por nombre..." aria-label="Buscar servicio" />
-                <select aria-label="Filtrar por categoría">
-                    <option value="">Todas las categorías</option>
-                    <option value="web">Desarrollo Web</option>
-                    <option value="ecommerce">E-Commerce</option>
-                    <option value="sistemas">Software a Medida</option>
-                    <option value="diseno">UI / UX</option>
-                    <option value="soporte">Soporte Técnico</option>
-                </select>
-            </div>
-
-            <!-- Tabla de registros -->
-            <div class="tabla-responsiva">
-                <table class="tabla-admin">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Ícono</th>
-                            <th>Servicio</th>
-                            <th>Categoría</th>
-                            <th>Precio Ref.</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>#01</td>
-                            <td><i class="fa-solid fa-laptop-code icono-tabla"></i></td>
-                            <td><strong>Desarrollo de páginas web</strong></td>
-                            <td>Desarrollo Web</td>
-                            <td>Desde S/ 850</td>
-                            <td><span class="badge-activo">Activo</span></td>
-                            <td class="acciones-tabla">
-                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
-                                    Editar</button>
-                                <button type="button" class="btn-eliminar" title="Eliminar"><i
-                                        class="fa-solid fa-trash"></i> Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#02</td>
-                            <td><i class="fa-solid fa-cart-shopping icono-tabla"></i></td>
-                            <td><strong>Tiendas virtuales</strong></td>
-                            <td>E-Commerce</td>
-                            <td>Desde S/ 1,600</td>
-                            <td><span class="badge-activo">Activo</span></td>
-                            <td class="acciones-tabla">
-                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
-                                    Editar</button>
-                                <button type="button" class="btn-eliminar" title="Eliminar"><i
-                                        class="fa-solid fa-trash"></i> Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#03</td>
-                            <td><i class="fa-solid fa-network-wired icono-tabla"></i></td>
-                            <td><strong>Sistemas web</strong></td>
-                            <td>Software a Medida</td>
-                            <td>Desde S/ 2,400</td>
-                            <td><span class="badge-activo">Activo</span></td>
-                            <td class="acciones-tabla">
-                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
-                                    Editar</button>
-                                <button type="button" class="btn-eliminar" title="Eliminar"><i
-                                        class="fa-solid fa-trash"></i> Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#04</td>
-                            <td><i class="fa-solid fa-palette icono-tabla"></i></td>
-                            <td><strong>Diseño web</strong></td>
-                            <td>UI / UX</td>
-                            <td>Desde S/ 550</td>
-                            <td><span class="badge-activo">Activo</span></td>
-                            <td class="acciones-tabla">
-                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
-                                    Editar</button>
-                                <button type="button" class="btn-eliminar" title="Eliminar"><i
-                                        class="fa-solid fa-trash"></i> Eliminar</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>#05</td>
-                            <td><i class="fa-solid fa-screwdriver-wrench icono-tabla"></i></td>
-                            <td><strong>Mantenimiento</strong></td>
-                            <td>Soporte Técnico</td>
-                            <td>Desde S/ 200 / mes</td>
-                            <td><span class="badge-activo">Activo</span></td>
-                            <td class="acciones-tabla">
-                                <button type="button" class="btn-editar" title="Editar"><i class="fa-solid fa-pen"></i>
-                                    Editar</button>
-                                <button type="button" class="btn-eliminar" title="Eliminar"><i
-                                        class="fa-solid fa-trash"></i> Eliminar</button>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+        <!-- Barra de búsqueda y filtro -->
+        <section class="admin-toolbar">
+            <input type="search" id="buscador-admin" placeholder="Buscar servicio por nombre o descripción...">
+            <select id="filtro-categoria-admin">
+                <option value="todas">Todas las categorías</option>
+                <option value="Desarrollo Web">Desarrollo Web</option>
+                <option value="E-Commerce">E-Commerce</option>
+                <option value="Software a Medida">Software a Medida</option>
+                <option value="UI / UX">UI / UX</option>
+                <option value="Soporte Técnico">Soporte Técnico</option>
+            </select>
         </section>
 
+        <!-- Tabla dinámica de gestión -->
+        <div class="tabla-responsive">
+            <table class="admin-tabla">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Servicio</th>
+                        <th>Categoría</th>
+                        <th>Precio Referencial</th>
+                        <th>Entrega</th>
+                        <th>Estado</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody id="tabla-admin-servicios"></tbody>
+            </table>
+        </div>
     </main>
 
-    <!-- PIE DE PÁGINA -->
-    <footer class="pie">
-        <div class="footer-columna">
-            <h4 class="logo-footer"><span class="texto-azul">NexaTech</span> Solutions</h4>
-            <p>Soluciones Web para pequeñas y medianas empresas. Impulsando el crecimiento de tu negocio.</p>
-        </div>
-        <div class="footer-columna">
-            <h4>Enlaces Rápidos</h4>
-            <a href="Inicio.html">Inicio</a>
-            <a href="Nosotros.html">Sobre Nosotros</a>
-            <a href="Servicios.html">Servicios</a>
-            <a href="Contactos.html">Contactos</a>
-            <a href="admin.html">Panel Admin</a>
-        </div>
-        <div class="footer-columna">
-            <h4>Contáctanos</h4>
-            <p>📍 Lima, Perú</p>
-            <p>✉️ nexasolutions956@gmail.com</p>
-            <p>📞 +51 989 449 366</p>
-        </div>
-        <div class="copyright">
-            &copy; 2026 NexaTech Solutions. Todos los derechos reservados.
+    <!-- Modal nativo para Crear / Editar servicio -->
+    <dialog id="modal-admin-servicio" class="modal-servicio">
+        <form id="form-admin-servicio" class="modal-contenido form-admin">
+            <div class="modal-header">
+                <h2 id="titulo-modal-admin">Nuevo Servicio</h2>
+                <button type="button" id="btn-cerrar-modal-admin" class="btn-cerrar-modal">&times;</button>
+            </div>
+
+            <input type="hidden" id="admin-servicio-id">
+
+            <label for="admin-titulo">Título del servicio</label>
+            <input type="text" id="admin-titulo" required placeholder="Ej. 6. Auditoría SEO y Seguridad">
+
+            <div class="form-admin-fila">
+                <div>
+                    <label for="admin-categoria">Categoría</label>
+                    <select id="admin-categoria" required>
+                        <option value="Desarrollo Web">Desarrollo Web</option>
+                        <option value="E-Commerce">E-Commerce</option>
+                        <option value="Software a Medida">Software a Medida</option>
+                        <option value="UI / UX">UI / UX</option>
+                        <option value="Soporte Técnico">Soporte Técnico</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="admin-precio">Precio referencial</label>
+                    <input type="text" id="admin-precio" required placeholder="Ej. Desde S/ 700">
+                </div>
+            </div>
+
+            <label for="admin-tiempo">Tiempo estimado de entrega</label>
+            <input type="text" id="admin-tiempo" required placeholder="Ej. 1 semana">
+
+            <label for="admin-incluye">¿Qué incluye?</label>
+            <input type="text" id="admin-incluye" required placeholder="Ej. Análisis técnico, reporte y correcciones">
+
+            <label for="admin-descripcion">Descripción breve</label>
+            <textarea id="admin-descripcion" rows="3" required
+                placeholder="Describe el alcance del servicio..."></textarea>
+
+            <div class="modal-acciones">
+                <button type="button" id="btn-cancelar-admin" class="btn-secundario">Cancelar</button>
+                <button type="submit" class="btn-primario">Guardar Cambios</button>
+            </div>
+        </form>
+    </dialog>
+
+    <footer class="pie-pagina">
+        <div class="contenedor footer-grid">
+            <div>
+                <h3><span>Nexa</span>Tech Solutions</h3>
+                <p>Módulo administrativo para gestión del portafolio de servicios.</p>
+            </div>
+            <div>
+                <h4>Accesos</h4>
+                <ul>
+                    <li><a href="Inicio.html">Inicio</a></li>
+                    <li><a href="Servicios.html">Servicios</a></li>
+                    <li><a href="Contactos.html">Contactos</a></li>
+                </ul>
+            </div>
         </div>
     </footer>
 </body>
